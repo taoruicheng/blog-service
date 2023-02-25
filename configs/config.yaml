@@ -1,0 +1,59 @@
+Server:
+  RunMode: debug #release、debug
+  HttpPort: 8000
+  ReadTimeout: 60
+  WriteTimeout: 60
+App:
+  DefaultPageSize: 10
+  MaxPageSize: 100
+  LogSavePath: /Users/taoruicheng/storage/logs
+  LogFileName: app
+  LogFileExt: .log
+  DefaultContextTimeout: 1
+Database:
+  Username: root  # 填写你的数据库账号
+  Password: root  # 填写你的数据库密码
+  Host: 10.151.3.169:3308
+  DBName: blog_service
+  TablePrefix: blog_
+  Charset: utf8mb4
+  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
+ApiLimiter:
+  - 
+    Method: POST
+    Url: /api/v1/articles
+    FillInterval: 1 #单位秒
+    Capacity: 1  #桶的容量，例如：100
+    Quantum: 1 #按照固定时间放N个令牌，桶的容量不会超过Capacity
+  - 
+    Method: DELETE
+    Url: /api/v1/articles
+    FillInterval: 1 #单位秒
+    Capacity: 1  #桶的容量，例如：100
+    Quantum: 1 #按照固定时间放N个令牌，桶的容量不会超过Capacity
+  - 
+    Method: get
+    Url: /api/v1/articles
+    FillInterval: 1 #单位秒
+    Capacity: 1  #桶的容量，例如：100
+    Quantum: 1 #按照固定时间放N个令牌，桶的容量不会超过Capacity
+  - 
+    Method: delete
+    Url: /api/v1/articles
+    FillInterval: 1 #单位秒
+    Capacity: 1  #桶的容量，例如：100
+    Quantum: 1 #按照固定时间放N个令牌，桶的容量不会超过Capacity
+  - 
+    Method: post
+    Url: /api/v1/articles
+    FillInterval: 1 #单位秒
+    Capacity: 1  #桶的容量，例如：100
+    Quantum: 1 #按照固定时间放N个令牌，桶的容量不会超过Capacity
+  - 
+    Method: delete
+    Url: /api/v1/articles
+    FillInterval: 1 #单位秒
+    Capacity: 1  #桶的容量，例如：100
+    Quantum: 1 #按照固定时间放N个令牌，桶的容量不会超过Capacity
